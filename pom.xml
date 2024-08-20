@@ -110,6 +110,7 @@
             <url>https://maven.pkg.github.com/edsonwade/common</url>
         </repository>
     </distributionManagement>
+
     <scm>
         <connection>scm:git:git://github.com/your-github-username/common.git</connection>
         <developerConnection>scm:git:ssh://github.com/your-github-username/common.git</developerConnection>

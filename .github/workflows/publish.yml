@@ -22,14 +22,18 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          echo "<settings>
+                  <servers>
+                    <server>
+                      <id>github</id>
+                      <username>${{ github.actor }}</username>
+                      <password>${{ secrets.MY_COMMON_PAT }}</password>
+                    </server>
+                  </servers>
+                </settings>" > ~/.m2/settings.xml
 
       - name: Build and deploy to GitHub Packages
         run: mvn clean deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
