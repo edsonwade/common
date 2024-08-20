@@ -52,3 +52,10 @@ To use the `common` library in your project, include the following dependency in
 - **Emojis**: Added throughout the file to make it visually appealing and easier to read.
 - **Clear Structure**: The README is structured to provide a quick overview of the repository’s purpose, its contents, and how to use it.
 - **Versioning and Contributions**: Sections on versioning and contributions to guide developers on how to engage with the project.
+
+
+### Resources for Further Learning
+[Spring Boot Documentation](https://docs.spring.io/spring-boot/index.html)
+[HTTP Specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+[API Design Best Practices](https://restfulapi.net/)
+[OpenAPI Specification:](https://swagger.io/specification/)

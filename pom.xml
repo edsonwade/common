@@ -20,6 +20,24 @@
 
     <dependencies>
         <!-- Spring Boot Starter Web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>6.1.11</version> <!-- Check for the latest version if necessary -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.1.11</version> <!-- Ensure the version matches your project -->
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.15.2</version> <!-- Ensure the version is compatible with your project -->
+        </dependency>
 
         <!-- Apache Commons Lang -->
         <dependency>
@@ -76,6 +94,12 @@
             <artifactId>hamcrest</artifactId>
             <version>${hamcrest.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
