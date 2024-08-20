@@ -1,4 +1,4 @@
-name: Build and Publish Common
+name: Publish Common to GitHub Packages
 
 on:
   push:
@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: secret  # Reference the environment name here
 
     steps:
       - name: Checkout code
@@ -21,18 +22,19 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: maven
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          echo "<settings>
+                  <servers>
+                    <server>
+                      <id>github</id>
+                      <username>${{ github.actor }}</username>
+                      <password>${{ secrets.MY_COMMON }}</password>
+                    </server>
+                  </servers>
+                </settings>" > ~/.m2/settings.xml
 
-      - name: Build and publish
+      - name: Build and deploy to GitHub Packages
         run: mvn clean deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.COMMON_PAT }}
-        with:
-          maven-settings: .github/maven-settings.xml
