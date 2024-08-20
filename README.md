@@ -55,7 +55,7 @@ To use the `common` library in your project, include the following dependency in
 
 
 ### Resources for Further Learning
-[Spring Boot Documentation](https://docs.spring.io/spring-boot/index.html)
-[HTTP Specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
-[API Design Best Practices](https://restfulapi.net/)
-[OpenAPI Specification:](https://swagger.io/specification/)
+1. [Spring Boot Documentation](https://docs.spring.io/spring-boot/index.html)
+2. [HTTP Specification](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+3. [API Design Best Practices](https://restfulapi.net/)
+4. [OpenAPI Specification:](https://swagger.io/specification/)
