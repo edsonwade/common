@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -30,7 +27,7 @@ jobs:
                     <server>
                       <id>github</id>
                       <username>${{ github.actor }}</username>
-                      <password>${{ secrets.MY_COMMON_PAT }}</password>
+                      <password>${{ secrets.MY_COMMON }}</password>
                     </server>
                   </servers>
                 </settings>" > ~/.m2/settings.xml
