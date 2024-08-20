@@ -2,7 +2,7 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${{ github.actor }}</username>
+            <username>edsonwade</username>
             <password>${{ secrets.COMMON_PAT }}</password>
         </server>
     </servers>

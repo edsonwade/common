@@ -1,4 +1,4 @@
-name: Build and Publish Common
+name: Publish Common to GitHub Packages
 
 on:
   push:
@@ -21,7 +21,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: maven
 
       - name: Cache Maven packages
         uses: actions/cache@v2
@@ -30,9 +29,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Build and publish
+      - name: Build and deploy to GitHub Packages
         run: mvn clean deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.COMMON_PAT }}
-        with:
-          maven-settings: .github/maven-settings.xml
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
