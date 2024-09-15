@@ -1,0 +1,1 @@
+docker build -t common-management-system . && docker-compose up

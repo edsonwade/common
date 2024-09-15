@@ -1,6 +1,7 @@
 package code.with.vanilson.common.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,27 +14,34 @@ import java.time.LocalDateTime;
  * @version 1.0
  * @since 2024-07-05
  */
-@Getter
-@Setter
-@JsonPropertyOrder(value = {"message", "errorCode", "zone", "path", "status", "timestamp"})
+@Data
+@JsonPropertyOrder(value = {"message", "status", "errorCode", "path", "zone", "timestamp", "code", "traceId"})
+@SuppressWarnings("warnings")
 public class ErrorResponse {
     private String message;
-    private String errorCode;
+    private String status;
     private String zone;
+    private int errorCode;
     private String path;
-    private int status;
     private LocalDateTime timestamp;
+    private String code;
+    private String traceId;
 
     private ErrorResponse() {
+        // Private constructor to prevent instantiation from outside the class.
+        // Use the builder pattern or create a factory method to instantiate ErrorResponse objects.
     }
 
-    public ErrorResponse(String message, String errorCode, String zone, String path, int status,
-                         LocalDateTime timestamp) {
+    public ErrorResponse(String message, String status, String zone, int errorCode, String path,
+                         LocalDateTime timestamp,
+                         String code, String traceId) {
         this.message = message;
-        this.errorCode = errorCode;
-        this.zone = zone;
-        this.path = path;
         this.status = status;
+        this.zone = zone;
+        this.errorCode = errorCode;
+        this.path = path;
         this.timestamp = timestamp;
+        this.code = code;
+        this.traceId = traceId;
     }
 }
